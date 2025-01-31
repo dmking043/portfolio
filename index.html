@@ -17,10 +17,32 @@
             text-align: center;
         }
 
+        /* Apply styles specifically to the Page Header Nav and Photo */
         header {
+            display: flex;               /* Use flexbox layout */
+            align-items: center;         /* Vertically align items */
+            justify-content: center;     /* Center the content horizontally */
             background: #ddd;
             padding: 20px;
-            text-align: center;
+            position: relative;
+        }
+
+        .header-photo {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 100px; /* Adjusted height */
+            width: auto;   /* Maintain aspect ratio */
+            border: 5px solid #333;  /* Add a solid border around the image */
+            border-radius: 8px;       /* Optional: Round the corners of the border */
+            padding: 5px;             /* Optional: Add space between the photo and the border */
+            background-color: white;  /* Optional: Adds a white background inside the border */
+        }
+
+        .header-content {
+            text-align: center;          /* Center the text and nav */
+            z-index: 1;                  /* Ensure the text is on top of the image */
         }
 
         nav ul {
@@ -28,7 +50,6 @@
             padding: 0;
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
         }
 
         nav ul li {
@@ -237,6 +258,8 @@
 </head>
 <body>
     <header>
+        <img src="/assets/img/Evan.jpg" alt="Your Photo" class="header-photo">
+        <div class="header-content">
         <h1>Evan King</h1>
         <p>Game Developer Portfolio</p>
         <nav>
