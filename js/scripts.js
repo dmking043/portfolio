@@ -1,5 +1,3 @@
-<!-- JavaScript at the bottom of the index page -->
-
 document.addEventListener("DOMContentLoaded", function() {
     // Get all carousels
     const carousels = document.querySelectorAll('.carousel');
@@ -8,6 +6,11 @@ document.addEventListener("DOMContentLoaded", function() {
     function moveToImage(carousel, direction) {
         const images = carousel.querySelectorAll('img');
         let currentIndex = Array.from(images).findIndex(image => image.classList.contains('active'));
+
+        // Ensure at least one image is active
+        if (currentIndex === -1) {
+            currentIndex = 0;
+        }
 
         // Remove active class from current image
         images[currentIndex].classList.remove('active');
@@ -30,17 +33,21 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Set initial active class on the first image (if not already set in HTML)
         const images = carousel.querySelectorAll('img');
-        if (!images[0].classList.contains('active')) {
+        if (images.length > 0 && !images[0].classList.contains('active')) {
             images[0].classList.add('active');
         }
 
-        // Add event listeners to move to next or previous image
-        prevButton.addEventListener('click', function() {
-            moveToImage(carousel, -1); // Move to previous image
-        });
+        // Ensure buttons exist before adding event listeners
+        if (prevButton) {
+            prevButton.addEventListener('click', function() {
+                moveToImage(carousel, -1); // Move to previous image
+            });
+        }
 
-        nextButton.addEventListener('click', function() {
-            moveToImage(carousel, 1); // Move to next image
-        });
+        if (nextButton) {
+            nextButton.addEventListener('click', function() {
+                moveToImage(carousel, 1); // Move to next image
+            });
+        }
     });
 });
