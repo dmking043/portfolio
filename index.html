@@ -270,12 +270,11 @@
             width: 100%;               /* Ensures it spans the full width */
         }
         
-        #skills ul {
-            padding-left: 80px; /* Add padding to indent the whole list */
-        }
-
-        #skills li {
-            padding-left: 20px; /* Indentation for each list item */
+        /* Style for the about section */
+        .about-section {
+            margin-left: 0;
+            padding-left: 20px;  /* Adjust this to your preference */
+            text-align: left;
         }
 
         /* Style for the Project section photo carousel */
@@ -329,16 +328,44 @@
         <p>Game Developer</p>
         <nav>
             <ul>
-                <li><a href="#projects">Projects</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
                 <li><a href="#resume">Resume</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
     
+<!-- About-->
+
+<section class="about" id="about">
+    <div class="about-section">
+        <div><h2 class="mb-5">About</h2></div>
+        <h1 class="mb-0">
+            <h2>Evan D. King</h2>
+        <div class="subheading mb-5">
+            Winter Park, Florida · <a href="tel:713-876-1158">(713) 876-1158</a> ·
+                <a href="mailto:edking143@gmail.com">edking143@gmail.com</a>
+              </a>
+        </div>
+        <p>I am a student of Full Sail University working towards a degree in Game Development, Expected Graduation February 2025. During my studies, I honed my skills in Visual Studio as well as programming languages and tools, such as; C# and C++. I gained hands-on experience with game engines such as Unity, Unreal Engine 5 and Blueprints.</p>
+        <br>
+        <br>
+        <div class="social-icons">
+            <a class="social-icon" href="https://www.linkedin.com/in/evanking143/"><i class="fab fa-linkedin-in"></i></a>
+            <a class="social-icon" href="https://github.com/kingdomempire"><i class="fab fa-github"></i></a>
+            <!-- <a class="social-icon" href="#!"><i class="fab fa-twitter"></i></a> -->
+            <!-- <a class="social-icon" href="#!"><i class="fab fa-facebook-f"></i></a> -->
+        </div>
+
+<!-- End of About-->
+
+    <!-- Section Divider line -->
+    <hr class="section-divider">
+
 <!-- Projects -->
 
+    <div><h2 class="mb-5">Projects</h2></div>
     <section id="projects" class="project-list">
         <div class="project">
             <h2>Project 1</h2>
@@ -368,6 +395,7 @@
     <hr class="section-divider">
 
     <!-- Resume -->
+    <div><h2 class="mb-5">Resume</h2></div>
     <section id="resume" class="resume">  
         <div class="name-container">
             <p><h1><strong>Evan D. King</strong></h1></p>
