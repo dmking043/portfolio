@@ -26,68 +26,67 @@
             text-align: center;
         }
 
-        /* Apply styles specifically to the Page Header Nav and Photo */
-/* Apply Flexbox to header */
-header {
-    display: flex; 
-    align-items: center; /* Align items vertically */
-    justify-content: space-between; /* Space out content */
-    padding: 10px 20px; 
-    background-color: #333; 
-    color: white;
-    flex-wrap: nowrap; /* Prevents wrapping to new lines */
-}
+        /* Apply Flexbox to header */
+        header {
+            display: flex; 
+            align-items: center; /* Align items vertically */
+            justify-content: space-between; /* Space out content */
+            padding: 10px 20px; 
+            background-color: #333; 
+            color: white;
+            flex-wrap: nowrap; /* Prevents wrapping to new lines */
+        }
 
-/* If using an image, control its size */
-.header-photo {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    margin-right: 15px;
-}
+        /* If using an image, control its size */
+        .header-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
 
-/* Force header content (name + tagline) to be in one line */
-.header-content {
-    display: flex;
-    flex-direction: row; /* Ensures items stay in one row */
-    align-items: center; /* Aligns text vertically */
-    gap: 10px; /* Adds space between h1 and p */
-    white-space: nowrap; /* Prevents line breaks */
-}
+        /* Force header content (name + tagline) to be in one line */
+        .header-content {
+            display: flex;
+            flex-direction: row; /* Ensures items stay in one row */
+            align-items: center; /* Aligns text vertically */
+            gap: 10px; /* Adds space between h1 and p */
+            white-space: nowrap; /* Prevents line breaks */
+        }
 
-/* Prevent h1 and p from breaking */
-.header-content h1, 
-.header-content p {
-    margin-right: 40px; /* Adjust as needed */
-    display: inline-block;
-}
+        /* Prevent h1 and p from breaking */
+        .header-content h1, 
+        .header-content p {
+            margin-right: 40px; /* Adjust as needed */
+            display: inline-block;
+        }
 
-/* Ensure navigation stays in a single line */
-nav {
-    flex-grow: 1;
-    text-align: right;
-}
+        /* Ensure navigation stays in a single line */
+        nav {
+            flex-grow: 1;
+            text-align: right;
+        }
 
-/* Make navigation horizontal */
-nav ul {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    gap: 30px; /* Adds spacing between items */
-}
+        /* Make navigation horizontal */
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 30px; /* Adds spacing between items */
+        }
 
-/* Ensure nav items do not wrap */
-nav ul li {
-    white-space: nowrap; /* Prevents nav items from wrapping */
-}
+        /* Ensure nav items do not wrap */
+        nav ul li {
+            white-space: nowrap; /* Prevents nav items from wrapping */
+        }
 
-/* Style the links */
-nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-}
+        /* Style the links */
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
 
 
 
@@ -190,29 +189,17 @@ nav ul li a {
 
         /* Ensure the Resume section content stays aligned to the left by default */
         #resume {
-            padding: 20px;
+            padding: 30px;
         }
 
-        /* Specifically target the header inside the Resume section */
-        #resume header {
-            text-align: center;  /* Ensure content in header is centered */
+        /* Ensure each <div> inside the header is treated as a block-level element */
+        #resume header div {
+            display: block;         /* Makes each <div> a block element */
+            margin: 5px 0;          /* Optional: Add spacing between lines */
+            text-align: center;     /* Centers the text inside the div */
         }
 
-        /* Ensure each <p> tag inside the header is centered and displayed as a block */
-        #resume header p {
-            display: block;         /* Makes each <p> a block element, forcing new lines */
-            margin: 8px 0;          /* Optional: Add spacing between paragraphs */
-            text-align: center;     /* Centers each <p> text */
-        }
-
-        /* Optional: Style links within the header */
-        #resume header a {
-            text-decoration: none;  /* Remove underline */
-            color: #007BFF;         /* Set color for links */
-            font-weight: bold;      /* Bold the links */
-        }
-
-        /* Make sure the Resume title is centered */
+        /* Ensure the Resume title is centered */
         #resume h2 {
             font-size: 2rem;         /* Size for the heading */
             font-weight: bold;       /* Bold heading */
@@ -252,10 +239,12 @@ nav ul li a {
             list-style-type: none; /* Remove default bullets */
         }
 
+        /* Indentation and styling for list items */
         li {
-            padding-left: 20px; /* Adjust left padding to match the indent of wrapped text */
-            text-indent: -20px; /* Indent text so it aligns properly when wrapping */
-            line-height: 1.6; /* Adjust line-height for readability, if necessary */
+            padding-left: 30px;  /* Indentation for the entire list item */
+            text-indent: -20px;  /* Negative text-indent to align wrapped lines */
+            line-height: 1.6;    /* Adjust line-height for readability */
+            margin-bottom: 0;    /* Optional: Remove spacing between list items */
         }
 
         /* Optional: Add margin-bottom to list items for spacing */
@@ -263,11 +252,10 @@ nav ul li a {
             margin-bottom: 8px; 
         }
 
-        /* Remove any extra margins/paddings from ul and li elements */
-        ul, li {
-            margin: 0;
-            padding: 0;
-        }
+        /* Increase spacing between <p> elements in the contact container */
+        /* .contact-container p {
+            margin-bottom: 20px; /* Adjust the value as needed */
+        } */
 
         /* Remove bullets */
         ul {
@@ -280,6 +268,14 @@ nav ul li a {
             border-top: 2px solid #ccc; /* Adds a thin gray line */
             margin: 20px 0;            /* Adds space above and below the divider */
             width: 100%;               /* Ensures it spans the full width */
+        }
+        
+        #skills ul {
+            padding-left: 80px; /* Add padding to indent the whole list */
+        }
+
+        #skills li {
+            padding-left: 20px; /* Indentation for each list item */
         }
 
         /* Style for the Project section photo carousel */
@@ -367,15 +363,16 @@ nav ul li a {
     <hr class="section-divider"> <!-- Divider line -->
 
     <section id="resume" class="resume">
-        <h2>Resume</h2>
-        <header>
-            <p><strong>Evan D. King</strong></p>
-            <p><strong>Mobile:</strong> <a href="tel:713-876-1158">(713) 876-1158</a></p>
-            <p><strong>Email:</strong> <a href="mailto:edking143@gmail.com">edking143@gmail.com</a></p>
-            <p><strong>Portfolio:</strong> <a href="https://kingdomempire.github.io"><u>kingdomempire.github.io</u></a></p>
-            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/evanking143/">linkedin/in/evanking143</a></p>
-        </header> 
-        </header> 
+        
+        <div class="name-container">
+            <p><h1><strong>Evan D. King</strong></h1></p>
+        </div>
+        <div class="contact-container">
+            <p><strong>Mobile:</strong> <a href="tel:713-876-1158">(713) 876-1158</a>&nbsp;&nbsp;<strong>Email:</strong> <a href="mailto:edking143@gmail.com">edking143@gmail.com</a></p>
+            <p><strong>Portfolio:</strong> <a href="https://kingdomempire.github.io"><u>kingdomempire.github.io</u>&nbsp;&nbsp;</a><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/evanking143/">linkedin/in/evanking143</a></p>
+        </div>     
+
+         <!-- Continue with the rest of your resume content -->
         <h3><strong>SUMMARY</strong></h3>
         <div class="box">
             <p>Game Development graduate with expertise in programming, software engineering, and QA. Skilled in crafting immersive mechanics and interactive worlds through hands-on projects. Passionate about innovation and collaboration, with a commitment to staying ahead of industry trends. Eager to bring fresh ideas and technical skills to cutting-edge game development.</p>
@@ -424,48 +421,20 @@ nav ul li a {
                 <li>99% Attendance</li>
         </div>
     </section>
-    <p>Download My Resume:<a href="https://dmking043.github.io/assets/pdf-files/EvanKingResume.pdf" download>EvanKingResume.pdf
-        <a href="https://kingdomempire.github.io/assets/docx-files/EvanKingResume.docx">EvanKingResume.doc</a></p>
+    <p>
+        <strong>Resume Download Options:</strong> <a href="https://kingdomempire.github.io/assets/pdf-files/EvanKingResume.pdf" download>Download as PDF</a>&nbsp;
+        <a href="https://kingdomempire.github.io/assets/docx-files/EvanKingResume.docx" download>Download as DOCX</a>
+        </P>
     
     <!-- CONTACT -->
-<div class="jump-offset" id="contact"></div>
-<div class="section--med section" style="background-color: #d4dde4">
-	<div class="section-content">
-		<span class="title--big title">Contact Me</span>
-		<br>
-		<div class="section-desc" style="text-align: center;">
-			<span class="text"><p>Feel free to send me a message here: <a href="/cdn-cgi/l/email-protection#197a76776d787a6d59716c7e76377f6070264a6c7b737c7a6d24517c6038" target="_blank"><span class="__cf_email__" data-cfemail="f5969a9b81949681b59d80929adb938c9c">[email&#160;protected]</span></a>, I'll try to respond as quick as I can! I'm also on this social media thing, if you need me there:</p>
-			<!-- SOCIAL LINKS -->
-			<div class="noselect" style="text-align: center;">
-				<div id="social-links">
-					<!-- TWITTER -->
-					<a class="social-icon" id="twitter" data-color="#1da1f2" data-friendly="Tweet, tweet!" href="https://www.twitter.com/HugoPeters96" target="_blank">
-						<i class="fa fa-twitter"></i>
-					</a>
-					<!-- INSTAGRAM -->
-					<a class="social-icon" id="instagram" data-color="#fcaf45" data-friendly="Say cheese!"  href="https://www.instagram.com/hugo.peters" target="_blank" >
-						<i class="fa fa-instagram"></i>
-					</a>
-					<!-- LINKEDIN -->
-					<a class="social-icon" id="linkedin" data-color="#8d6cab" data-friendly="Follow me.. professionally." href="https://www.linkedin.com/in/hugo-peters-8a695184" target="_blank" >
-						<i class="fa fa-linkedin"></i>
-					</a>
-					<!-- YOUTUBE -->
-					<a class="social-icon" id="youtube" data-color="#cd201f" data-friendly="Interesting stuff." href="https://www.youtube.com/channel/UCwyrzhBr1VSoxBv1eoaF8BA" target="_blank" >
-						<i class="fa fa-youtube-play"></i>
-					</a>
-				</div>
-			</div>
-			<!-- End of SOCIAL LINKS -->
-		</div>
-	</div>
-</div>
-<!-- End of CONTACT -->
-    <!-- <section id="contact"> -->
-        <!-- <h2>Contact</h2> -->
-        <!-- <p>Email: edking143@gmail.com</p> -->
+
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Please feel free to sned me an Email:</strong> <a href="mailto:edking143@gmail.com">edking143@gmail.com</a></p>
     </section>
-    
+   <!-- End of CONTACT -->
+
     <footer>
         <p>&copy; 2025 Evan D. King. All rights reserved.</p>
     </footer>
