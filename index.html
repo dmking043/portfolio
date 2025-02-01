@@ -27,15 +27,76 @@
         }
 
         /* Apply styles specifically to the Page Header Nav and Photo */
-        header {
-            display: flex;               /* Use flexbox layout */
-            align-items: center;         /* Vertically align items */
-            justify-content: center;     /* Center the content horizontally */
-            background: #bd5d38;
-            padding: 20px;
-            position: relative;
-        }
+/* Apply Flexbox to header */
+header {
+    display: flex; 
+    align-items: center; /* Align items vertically */
+    justify-content: space-between; /* Space out content */
+    padding: 10px 20px; 
+    background-color: #333; 
+    color: white;
+    flex-wrap: nowrap; /* Prevents wrapping to new lines */
+}
 
+/* If using an image, control its size */
+.header-photo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+/* Force header content (name + tagline) to be in one line */
+.header-content {
+    display: flex;
+    flex-direction: row; /* Ensures items stay in one row */
+    align-items: center; /* Aligns text vertically */
+    gap: 10px; /* Adds space between h1 and p */
+    white-space: nowrap; /* Prevents line breaks */
+}
+
+/* Prevent h1 and p from breaking */
+.header-content h1, 
+.header-content p {
+    margin-right: 40px; /* Adjust as needed */
+    display: inline-block;
+}
+
+/* Ensure navigation stays in a single line */
+nav {
+    flex-grow: 1;
+    text-align: right;
+}
+
+/* Make navigation horizontal */
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 30px; /* Adds spacing between items */
+}
+
+/* Ensure nav items do not wrap */
+nav ul li {
+    white-space: nowrap; /* Prevents nav items from wrapping */
+}
+
+/* Style the links */
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+
+
+        .header-photo {
+            width: 50px; /* Adjust size if you add the photo */
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
         .header-photo {
             position: absolute;
             left: 20px;
@@ -47,27 +108,6 @@
             border-radius: 8px;       /* Optional: Round the corners of the border */
             padding: 5px;             /* Optional: Add space between the photo and the border */
             background-color: white;  /* Optional: Adds a white background inside the border */
-        }
-
-        .header-content {
-            text-align: center;          /* Center the text and nav */
-            z-index: 1;                  /* Ensure the text is on top of the image */
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-        }
-
-        nav ul li {
-            margin: 20px;
-        }
-
-        nav ul li a {
-            color: #333;
-            text-decoration: none;
         }
 
         .project-list {
@@ -288,10 +328,9 @@
 </head>
 <body>
     <header>
-        <!-- <img src="assets/img/Evan.jpg" alt="Your Photo" class="header-photo"> -->
         <div class="header-content">
-        <h1>Evan D. King</h1>
-        <p>Game Developer Portfolio</p>
+        <h1>Evan King</h1>
+        <p>Game Developer</p>
         <nav>
             <ul>
                 <li><a href="#projects">Projects</a></li>
