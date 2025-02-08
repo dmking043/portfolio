@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Standard SEO -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <meta name="referrer" content="always" />
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="game development, game, development, programming, portfolio, evan king, c++, c#, gamedev, game design, Unreal Engine 5, Unreal Engine 5 Blueprints, Unity" />
+    <meta name="description" content="Evan King's Portfolio" />
+   
+    <meta http-equiv='cache-control' content='no-cache'> 
+    <meta http-equiv='expires' content='0'> 
+    <meta http-equiv='pragma' content='no-cache'>
+
+    <title>Evan King Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            text-align: center;
+        }
+
+        /* Apply Flexbox to header */
+        header {
+            display: flex; 
+            align-items: center; /* Align items vertically */
+            justify-content: space-between; /* Space out content */
+            padding: 10px 20px; 
+            background-color: #333; 
+            color: white;
+            flex-wrap: nowrap; /* Prevents wrapping to new lines */
+        }
+
+        /* If using an image, control its size */
+        .header-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        /* Force header content (name + tagline) to be in one line */
+        .header-content {
+            display: flex;
+            flex-direction: row; /* Ensures items stay in one row */
+            align-items: center; /* Aligns text vertically */
+            gap: 10px; /* Adds space between h1 and p */
+            white-space: nowrap; /* Prevents line breaks */
+        }
+
+        /* Prevent h1 and p from breaking */
+        .header-content h1, 
+        .header-content p {
+            margin-right: 40px; /* Adjust as needed */
+            display: inline-block;
+        }
+
+        /* Ensure navigation stays in a single line */
+        nav {
+            flex-grow: 1;
+            text-align: right;
+        }
+
+        /* Make navigation horizontal */
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 30px; /* Adds spacing between items */
+        }
+
+        /* Ensure nav items do not wrap */
+        nav ul li {
+            white-space: nowrap; /* Prevents nav items from wrapping */
+        }
+
+        /* Style the links */
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+
+
+        .header-photo {
+            width: 50px; /* Adjust size if you add the photo */
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        .header-photo {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 100px; /* Adjusted height */
+            width: auto;   /* Maintain aspect ratio */
+            border: 5px solid #333;  /* Add a solid border around the image */
+            border-radius: 8px;       /* Optional: Round the corners of the border */
+            padding: 5px;             /* Optional: Add space between the photo and the border */
+            background-color: white;  /* Optional: Adds a white background inside the border */
+        }
+
+        .project-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .project {
+            background: #fff;
+            margin: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .carousel img {
+            display: none; /* Hide all images by default */
+        }
+
+        .carousel img.active {
+            display: block; /* Only show the active image */
+        }
+
+        .carousel button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .carousel .prev {
+            left: 10px;
+        }
+
+        .carousel .next {
+            right: 10px;
+        }
+
+        footer {
+            margin-top: 20px;
+            padding: 10px;
+            background: #ddd;
+        }
+
+        .resume {
+            /* background: #fff; */
+            padding: 20px;
+            margin: 20px;
+            border-radius: 5px;
+            max-width: 90%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .resume a {
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+        }
+
+        /* Ensure the Resume section content stays aligned to the left by default */
+        #resume {
+            padding: 30px;
+        }
+
+        /* Ensure each <div> inside the header is treated as a block-level element */
+        #resume header div {
+            display: block;         /* Makes each <div> a block element */
+            margin: 5px 0;          /* Optional: Add spacing between lines */
+            text-align: center;     /* Centers the text inside the div */
+        }
+
+        /* Ensure the Resume title is centered */
+        #resume h2 {
+            font-size: 2rem;         /* Size for the heading */
+            font-weight: bold;       /* Bold heading */
+            text-align: center;      /* Center the heading text */
+            margin-bottom: 20px;     /* Space between heading and content */
+        }
+
+        #resume .box, 
+        #resume h3 {
+            text-align: left; /* Left-align the content inside the sections */
+        }
+
+        #resume ul {
+            text-align: left;
+            list-style-position: inside;
+        }
+
+        #resume ul ul {
+            text-align: left; /* Left-align the content inside the sections */
+            list-style-type: none;
+            
+        }
+
+        #resume li {
+            text-align: left;
+            list-style-position: inside;
+        }
+
+        /* Reset default margins/paddings for list items */
+        ul, li {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Ensure the text in each list item wraps and aligns correctly */
+        ul {
+            list-style-type: none; /* Remove default bullets */
+        }
+
+        /* Indentation and styling for list items */
+        li {
+            padding-left: 30px;  /* Indentation for the entire list item */
+            text-indent: -20px;  /* Negative text-indent to align wrapped lines */
+            line-height: 1.6;    /* Adjust line-height for readability */
+            margin-bottom: 0;    /* Optional: Remove spacing between list items */
+        }
+
+        /* Optional: Add margin-bottom to list items for spacing */
+        li {
+            margin-bottom: 8px; 
+        }
+
+        /* Increase spacing between <p> elements in the contact container */
+        /* .contact-container p {
+            margin-bottom: 20px; /* Adjust the value as needed */
+        } */
+
+        /* Remove bullets */
+        ul {
+            list-style-type: none;
+        }
+
+        /* Style for the section divider */
+        .section-divider {
+            border: none;             /* Removes the default border */
+            border-top: 2px solid #ccc; /* Adds a thin gray line */
+            margin: 20px 0;            /* Adds space above and below the divider */
+            width: 100%;               /* Ensures it spans the full width */
+        }
+        
+        /* Style for the about section */
+        .about-section {
+            margin-left: 0;
+            padding-left: 20px;  /* Adjust this to your preference */
+            text-align: left;
+        }
+
+        /* Style for the Project section photo carousel */
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 300px; /* You can adjust the height as per your image size */
+            overflow: hidden; /* Hides the images that are not visible */
+        }
+
+        .carousel img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.5s ease; /* Fade transition for images */
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .carousel img.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        button.prev, button.next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        button.prev {
+            left: 10px;
+        }
+
+        button.next {
+            right: 10px;
+        }
+
+        /* Style for the Social Media Icons in Contact section */
+        .social-media a{
+            margin: 10px;
+            font-size: 24px;
+        }
+        
+        .social-media a {
+            margin: 10px;
+            font-size: 32px; /* Adjust size */
+            color: 000; /* Icon color */
+            text-decoration: none;
+        }
+
+        .social-media a:hover {
+            color: #0073e6; /* Hover color */
+        }
+
+    </style>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+        <h1>Evan King</h1>
+        <p>Game Developer</p>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+<!-- About-->
+
+<section class="about" id="about">
+    <div class="about-section">
+        <div><h2 class="mb-5">About</h2></div>
+        <h1 class="mb-0">
+            <h3>Evan D. King</h3>
+        <div class="subheading mb-5">
+            Winter Park, Florida · <a href="tel:713-876-1158">(713) 876-1158</a> ·
+                <a href="mailto:edking143@gmail.com">edking143@gmail.com</a>
+              </a>
+        </div>
+        <p>I am a student of Full Sail University working towards a degree in Game Development, Expected Graduation February 2025. During my studies, I honed my skills in Visual Studio as well as programming languages and tools, such as; C# and C++. I gained hands-on experience with game engines such as Unity, Unreal Engine 5 and Blueprints.</p>
+        <br>
+        <br>
+        <div class="social-icons">
+            <!-- <a class="social-icon" href="https://www.linkedin.com/in/evanking143/"><i class="fab fa-linkedin-in"></i></a> -->
+            <!-- <a class="social-icon" href="https://github.com/kingdomempire"><i class="fab fa-github"></i></a> -->
+            <!-- <a class="social-icon" href="#!"><i class="fab fa-twitter"></i></a> -->
+            <!-- <a class="social-icon" href="#!"><i class="fab fa-facebook-f"></i></a> -->
+        </div>
+</section>
+
+<!-- End of About-->
+
+    <!-- Section Divider line -->
+    <hr class="section-divider">
+
+<!-- Projects -->
+
+    <div><h2 class="mb-5">Projects</h2></div>
+    <section id="projects" class="project-list">
+        <div class="project">
+            <h2>Project 1</h2>
+            <div class="carousel">
+                <button class="prev">&#10094;</button>
+                <img src="assets/img/Boop-IT_project1_A.png" class="active" alt="Project 1 Image 1">
+                <img src="assets/img/Boop-IT_project1_B.png" alt="Project 1 Image 2">
+                <img src="assets/img/Boop-IT_project1_C.png" alt="Project 1 Image 3">
+                <img src="assets/img/Boop-IT_project1_D.png" alt="Project 1 Image 4">
+                <button class="next">&#10095;</button>
+            </div>
+        </div>
+        <div class="project">
+            <h2>Project 2</h2>
+            <div class="carousel">
+                <button class="prev">&#10094;</button>
+                <img src="project2-1.jpg" class="active" alt="Project 2 Image 1">
+                <img src="project2-2.jpg" alt="Project 2 Image 2">
+                <button class="next">&#10095;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- End of Projects -->
+
+    <!-- Section Divider line -->
+    <hr class="section-divider">
+
+    <!-- Resume -->
+  
+    <section id="resume" class="resume">  
+        <div class="name-container">
+            <p><h1><strong>Evan D. King</strong></h1></p>
+        </div>
+        <div class="contact-container">
+            <p><strong>Mobile:</strong> <a href="tel:713-876-1158">(713) 876-1158</a>&nbsp;&nbsp;<strong>Email:</strong> <a href="mailto:edking143@gmail.com">edking143@gmail.com</a></p>
+            <p><strong>Portfolio:</strong> <a href="https://kingdomempire.github.io"><u>kingdomempire.github.io</u>&nbsp;&nbsp;</a><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/evanking143/">linkedin/in/evanking143</a></p>
+        </div>     
+            <br>
+        <h3><strong>SUMMARY</strong></h3>
+        <div class="box">
+            <p>Game Development graduate with expertise in programming, software engineering, and QA. Skilled in crafting immersive mechanics and interactive worlds through hands-on projects. Passionate about innovation and collaboration, with a commitment to staying ahead of industry trends. Eager to bring fresh ideas and technical skills to cutting-edge game development.</p>
+        </div>
+        <p class="small"></p>
+    
+        <h3><strong>Skills & Software</strong></h3>
+        <div class="box">
+                <li><strong>Languages:</strong> C++, C#.</li>
+                <li><strong>Game Engines:</strong> Unreal Engine 5, Unity, and Unreal Engine 5 Blueprints.</li>
+                <li><strong>Development Tools:</strong> Visual Studio 2022, GitHub.</li>
+                <li><strong>Game Development:</strong> AI programming, game architecture, UI design, procedural generation.</li>
+                <li><strong>Soft Skills:</strong> Team collaboration, problem-solving, verbal and written communication.</li>                        
+        </div>
+        <p class="small"></p>
+    
+        <h3><strong>Projects & Development Experience</strong></h3>
+        <div class="box">
+                <li><strong>Enemy AI Development:</strong> Designed two enemies and bosses using C++ with complex AI behaviors.</li>
+                <li><strong>Random Dungeon Generator:</strong> Built a blueprint-based dungeon generator in Unreal Engine 5, creating randomized environments and adaptive challenges to player progression.</li>
+                <li><strong>In-Game UI Components:</strong> Designed intuitive UI elements to enhance player interaction.</li>
+                <li><strong>Pickup/Interact System:</strong> Developed a C++ system in Unreal Engine for item interaction using Traces/RayCasts or picking up items and interacting with Interactables.</li>
+        </div>
+        <p class="small"></p>
+    
+        <h3><strong>Experience</strong></h3>
+        <div class="box">
+               <strong>Quality Assurance – Full Sail University UX Lab</strong> - January 2023 - February 2024</ul>
+               <li>Conducted Quality Assurance testing for indie and major studio game releases, identifying bugs and design inconsistencies.</li>
+               <li>Provided feedback on gameplay, UI, and player experience to refine mechanics and usability.</li>
+               <li>Collaborated with developers to enhance game quality based on user behavior and testing insights.</li>
+        </div>
+        <p class="small"></p>
+    
+        <h3><strong>Leadership</strong></h3>
+        <div class="box">
+                <li><strong>Eagle Scout</strong> - May 5, 2022</li>
+                <li>Demonstrated leadership, time management, and problem-solving skills.</li>
+        </div>
+        <p class="small"></p>
+    
+        <h3><strong>Education</strong></h3>
+        <div class="box">
+                <li><strong>Full Sail University</strong>, Winter Park, FL - February 2025</li>
+                <li>Bachelor of Science in Game Development</li>
+                <li>99% Attendance</li>
+        </div>
+    </section>
+    <p>
+        <strong>Resume Download Options:</strong> <a href="https://kingdomempire.github.io/assets/pdf-files/EvanKingResume.pdf" download>Download as PDF</a>&nbsp;
+        <a href="https://kingdomempire.github.io/assets/docx-files/EvanKingResume.docx" download>Download as DOCX</a>
+        </P>
+    
+    <!-- End of Resume -->
+
+    <!-- Section Divider line -->
+    <hr class="section-divider"> 
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Please feel free to sned me an Email:</strong> <a href="mailto:edking143@gmail.com">edking143@gmail.com</a></p>
+        <div class="social-media">
+
+            <a href="https://www.linkedin.com/in/evanking143/" target="_blank">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/kingdomempire" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+
+    </section>
+   
+    <!-- End of CONTACT -->
+
+    <footer>
+        <p>&copy; 2025 Evan D. King. All rights reserved.</p>
+    </footer>
+    <script defer src="js/scripts.js?v=2"></script>
+</body>
+</html>
